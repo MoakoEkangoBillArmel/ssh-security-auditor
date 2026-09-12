@@ -1,0 +1,51 @@
+# Exemple de fichier de configuration SSH vulnérable pour test
+# Ce fichier contient plusieurs mauvaises pratiques de sécurité
+
+Port 22
+ListenAddress 0.0.0.0
+
+# Protocol version - Mauvaise pratique : autoriser le protocole 1
+Protocol 2,1
+
+# Authentication
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes no
+MaxAuthTries 6
+MaxSessions 10
+
+PubkeyAuthentication yes
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+AuthorizedKeysFile      .ssh/authorized_keys .ssh/authorized_keys2
+
+# HostBased Authentication
+HostbasedAuthentication yes
+IgnoreUserKnownHosts no
+
+# Password Authentication
+PasswordAuthentication yes
+PermitEmptyPasswords yes
+
+# Challenge-Response Authentication
+ChallengeResponseAuthentication yes
+
+# X11 Forwarding
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost yes
+
+# Misc
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+UseLogin no
+PermitUserEnvironment yes
+Compression delayed
+ClientAliveInterval 0
+ClientAliveCountMax 3
+UseDNS no
+PidFile /var/run/sshd.pid
+MaxStartups 10:30:100
+PermitTunnel yes
+ChrootDirectory none
+VersionAddendum none
