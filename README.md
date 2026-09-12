@@ -19,8 +19,8 @@ A lightweight, professional, and automated Python tool designed to audit SSH ser
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/ssh-security-auditor.git
-   cd ssh-security-auditor
+   git clone https://github.com/MoakoEkangoBillArmel/ssh-secuty-auditor.git
+   cd ssh-secuty-auditor
    ```
 
 2. **Run the auditor against a config file:**
