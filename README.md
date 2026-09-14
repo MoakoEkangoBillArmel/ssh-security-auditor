@@ -1,6 +1,10 @@
-# SSH Security Auditer & Hardening Tool 🛡️
+# SSH Security Auditor 🛡️
 
-A lightweight, professional, and automated Python tool designed to audit SSH server configurations (`sshd_config`) and generate hardened, secure configurations based on cybersecurity best practices.
+![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-success)
+
+A lightweight, professional, and zero-dependency Python script designed to audit SSH server configurations (`sshd_config`) and generate hardened, secure configurations based on cybersecurity best practices.
 
 ## 📌 Features
 
@@ -8,12 +12,13 @@ A lightweight, professional, and automated Python tool designed to audit SSH ser
 - **Security Auditing:** Checks configurations against a baseline of strict security guidelines (e.g., disabling root login, enforcing Protocol 2, mitigating brute force via `MaxAuthTries`).
 - **Hardening Generation:** Automatically generates a new `sshd_config_hardened.conf` file, patching identified vulnerabilities while preserving non-relevant existing configurations and comments.
 - **Markdown Reporting:** Produces a clean, readable `audit_report.md` detailing the vulnerabilities found and the recommendations applied.
+- **Polished CLI:** Features a colorized and structured command-line interface.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.6+
-- No external dependencies required (uses built-in libraries like `re`, `argparse`, and `os`).
+- No external dependencies required (uses built-in standard libraries).
 
 ### Usage
 
@@ -22,6 +27,7 @@ A lightweight, professional, and automated Python tool designed to audit SSH ser
    git clone https://github.com/MoakoEkangoBillArmel/ssh-secuty-auditor.git
    cd ssh-secuty-auditor
    ```
+   *(Note: There is a typo in the repository name on GitHub `ssh-secuty-auditor`. If you rename it to `ssh-security-auditor`, make sure to update this URL!)*
 
 2. **Run the auditor against a config file:**
    ```bash
@@ -38,7 +44,7 @@ A lightweight, professional, and automated Python tool designed to audit SSH ser
 ```bash
 usage: ssh_audit.py [-h] [-o OUTPUT] [-r REPORT] config_file
 
-SSH Security Auditer & Hardening Tool
+SSH Security Auditor & Hardening Tool
 
 positional arguments:
   config_file           Path to the sshd_config file to audit
@@ -65,6 +71,7 @@ This tool enforces the following best practices:
 - `HostbasedAuthentication no` (Prevents pivoting from compromised hosts)
 - `PermitUserEnvironment no` (Prevents environment variable manipulation)
 - `ClientAliveInterval 300` & `ClientAliveCountMax 0` (Prevents idle sessions from lingering indefinitely)
+- `UsePAM yes` (Leverages Pluggable Authentication Modules for deeper access control)
 
 ## ⚠️ Disclaimer
 
@@ -72,4 +79,4 @@ Always review the generated `sshd_config_hardened.conf` before deploying it to a
 
 ## 📄 License
 
-This project is open-source and available under the MIT License.
+This project is open-source and available under the [MIT License](LICENSE).
